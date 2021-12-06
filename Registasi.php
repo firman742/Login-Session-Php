@@ -1,14 +1,16 @@
 <?php
+// Koneksikan ke Database 
 require('koneksi.php');
-
+// Pengambilan Data yang submitkan 
 if( isset($_POST['register']) ){
-
+// Ambil Dan Simpan Jika data belum ada
     if( registrasi($_POST) > 0 ){
         echo"
             <script>
                 alert('User baru telah ditambahkan!');
             </script>
         ";
+// Jika data Sudah ada tampilkan pesan 'Username Sudah terdaftar' dan proses pendaftarannya pun diberhentikan        
     }else{
         echo mysqli_error($conn);
     } 
